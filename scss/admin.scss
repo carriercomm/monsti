@@ -236,3 +236,26 @@ $default-border-radius: 2px;
     width: 7%;
   }
 }
+
+.modal-popup {
+  position: fixed;
+  top: 2%;
+  bottom: 2%;
+  left: 2%;
+  right: 2%;
+  z-index: 100005;
+  background: white;
+  border: 1px solid $border-color;
+  @include border-radius(10px);
+  @include box-shadow(0px 0px 5px #333, 0px 0px 0px 100vw rgba(#000, 0.5));
+}
+
+.modal-popup__close {
+  position: absolute;
+  top: 1ex;
+  right: 1ex;
+}
+
+.modal-open {
+  overflow: hidden;
+}

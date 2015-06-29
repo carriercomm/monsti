@@ -54,17 +54,36 @@ monsti.initAutoName = function() {
   },false);
 }
 
+// createBrowserPopup creates a modal browser popup for the given
+// ref-field.
+monsti.createRefBrowserPopup = function(field) {
+  var popup = document.createElement("div");
+  popup.classList.add("modal-popup");
+  popup.classList.add("modal-popup--browser");
+  var closeButton = document.createElement("button");
+  closeButton.classList.add("modal-popup__close");
+  closeButton.innerHTML = "X";
+  popup.insertBefore(closeButton, null);
+  document.body.insertBefore(popup, null);
+  document.body.classList.add("modal-open");
+}
+
 // initRefFields initializes reference fields.
 monsti.initRefFields = function() {
   // Add action for select file choosers' buttons
   var refFields = document.querySelectorAll(".ref-field");
   for (var i = 0; i < refFields.length; i++) {
+    var field = refFields[i];
     var div = document.createElement("div");
     var button = document.createElement("button");
     button.innerHTML = "…";
-    div.insertBefore(refFields[i].querySelector("input"), null);
+    button.addEventListener("click", function(event) {
+      event.preventDefault();
+      monsti.createRefBrowserPopup(field);
+    }, true);
+    div.insertBefore(field.querySelector("input"), null);
     div.insertBefore(button, null);
-    refFields[i].insertBefore(div, refFields[i].querySelector(".help"));
+    field.insertBefore(div, field.querySelector(".help"));
   }
 }
 
