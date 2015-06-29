@@ -219,3 +219,20 @@ $default-border-radius: 2px;
 .chooser-image-name {
   display: block;
 }
+
+.ref-field {
+  div {
+    display: table;
+    width: 100%;
+  }
+  input, button {
+    display: table-cell;
+  }
+  input {
+    width: calc(93% - 5px);
+  }
+  button {
+    margin-left: 5px;
+    width: 7%;
+  }
+}

@@ -54,9 +54,24 @@ monsti.initAutoName = function() {
   },false);
 }
 
+// initRefFields initializes reference fields.
+monsti.initRefFields = function() {
+  // Add action for select file choosers' buttons
+  var refFields = document.querySelectorAll(".ref-field");
+  for (var i = 0; i < refFields.length; i++) {
+    var div = document.createElement("div");
+    var button = document.createElement("button");
+    button.innerHTML = "…";
+    div.insertBefore(refFields[i].querySelector("input"), null);
+    div.insertBefore(button, null);
+    refFields[i].insertBefore(div, refFields[i].querySelector(".help"));
+  }
+}
+
 // initEdit initializes edit action views.
 monsti.initEdit = function() {
   monsti.initAutoName();
+  monsti.initRefFields();
 }
 
 // getQueryParam returns the given parameter of the window's query.

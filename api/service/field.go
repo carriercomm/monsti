@@ -394,6 +394,7 @@ func (f RefField) FormWidget(locale string, field *FieldConfig) htmlwidgets.Widg
 		widget.MinLength = 1
 		widget.ValidationError = G("Required.")
 	}
+	widget.Base().Classes = []string{"ref-field"}
 	return widget
 }
 
