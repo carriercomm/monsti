@@ -1,4 +1,6 @@
 * 0.14.0 - unreleased
+ - New features:
+    + Added basic experimental taxonomy support.
 
 * 0.13.0 - released 2015/07/22
  - New features:
